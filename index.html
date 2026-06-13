@@ -1,0 +1,863 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  
+    <!-- أيقونة المتصفح العادية لشاشات الكمبيوتر -->
+<link rel="icon" type="image/jpeg" sizes="32x32" href="c:\Users\VICTUS\Downloads\339633429_728696232269859_4231242276093642866_n.jpg">
+<link rel="icon" type="image/jpeg" sizes="16x16" href="c:\Users\VICTUS\Downloads\339633429_728696232269859_4231242276093642866_n.jpg">
+
+<!-- أيقونة خاصة بهواتف آيفون (Apple Touch Icon) عند حفظ الموقع على الشاشة -->
+<link rel="apple-touch-icon" sizes="180x180" href="c:\Users\VICTUS\Downloads\339633429_728696232269859_4231242276093642866_n.jpg">
+
+<!-- أيقونة مخصصة للمتصفحات الحديثة وقوائم الاختصارات على أندرويد -->
+<link rel="icon" type="image/jpeg" sizes="192x192" href="c:\Users\VICTUS\Downloads\339633429_728696232269859_4231242276093642866_n.jpg">
+<!-- أسطر مشاركة الموقع على منصات التواصل (واتساب، فيسبوك، إلخ) -->
+<meta property="og:title" content="Hot Grill - شاورما وسناك | الرصيفة وحي الرشيد">
+<meta property="og:description" content="من قلب الرصيفة، نأتيك بأشهى وجبات الشاورما والسناك الحقيقية حتى 3 فجراً.">
+<meta property="og:image" content="c:\Users\VICTUS\Downloads\339633429_728696232269859_4231242276093642866_n.jpg">
+<meta property="og:type" content="website">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot Grill - شاورما وسناك | الرصيفة وحي الرشيد</title>
+    <!-- استدعاء خط Cairo الاحترافي -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <!-- استدعاء مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* الأنماط الأساسية للموقع */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8f8f8;
+            color: #1a1a1a;
+            line-height: 1.6;
+            padding-bottom: 60px; /* مساحة للزر العائم */
+        }
+
+        /* أنماط الهيدر (القائمة العلوية) المحدثة لتطابق التصميم */
+        header {
+            background-color: #000; 
+            color: #fff; 
+            padding: 15px 30px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cta-button {
+            background-color: #e63946; 
+            color: white; 
+            text-decoration: none; 
+            padding: 10px 25px; 
+            border-radius: 20px; 
+            font-weight: bold; 
+            font-size: 16px; 
+            display: inline-block; 
+            transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .cta-button:hover {
+            background-color: #c92a3a;
+        }
+
+        /* أنماط روابط السوشيال ميديا في الهيدر */
+        .social-header-links {
+            display: flex;
+            gap: 12px;
+        }
+        .social-header-links a {
+            color: #fff;
+            font-size: 18px;
+            transition: color 0.3s, transform 0.2s;
+        }
+        .social-header-links a:hover {
+            color: #ffc107;
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            list-style: none; 
+            display: flex; 
+            gap: 25px; 
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff; 
+            text-decoration: none; 
+            font-size: 16px; 
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffc107;
+        }
+
+        .logo {
+            font-size: 24px; 
+            font-weight: bold; 
+            letter-spacing: 1px;
+        }
+
+       /* أنماط البانر الرئيسي (Hero Section) مع الحركة */
+        .hero {
+            position: relative; 
+            background-color: #1a1a1a; 
+            height: 55vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            color: white; 
+            overflow: hidden;
+        }
+
+        /* إضافة طبقة للخلفية المتحركة */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            animation: zoomEffect 20s infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes zoomEffect {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+
+        .hero-overlay {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0, 0, 0, 0.65); 
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative; 
+            z-index: 2; 
+            max-width: 900px; 
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px; 
+            font-weight: 700; 
+            margin-bottom: 15px; 
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 18px; 
+            color: #eee; 
+            font-weight: 400; 
+            opacity: 0.95; 
+            margin-top: 10px; 
+            letter-spacing: 0.5px;
+        }
+
+        /* أنماط قسم وجباتنا التفاعلي */
+        .categories-section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .section-subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .categories-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-item {
+            width: calc(25% - 20px);
+            min-width: 260px;
+            margin-bottom: 20px;
+        }
+
+        .category-card {
+            background: #111;
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.4);
+            border-color: #e63946;
+        }
+
+        .category-card h3 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #ffc107;
+        }
+
+        .category-card .icon {
+            font-size: 45px;
+        }
+
+        .category-card p {
+            font-size: 13px;
+            color: #bbb;
+        }
+
+        /* أنماط جداول الأسعار المخفية */
+        .price-list-container {
+            display: none;
+            background: white;
+            margin-top: 15px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-align: right;
+            border-top: 4px solid #e63946;
+            animation: slideDown 0.4s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .price-table th, .price-table td {
+            padding: 10px 6px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        .price-table th {
+            color: #000;
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+
+        .price-table td:first-child {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .price-val {
+            font-weight: bold;
+            color: #e63946;
+        }
+
+        /* أزرار الإضافة إلى السلة داخل الجدول */
+        .add-to-cart-btn {
+            background-color: #ffc107;
+            color: #000;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-right: 4px;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #e0a800;
+            transform: scale(1.05);
+        }
+
+    /* السلة الجانبية المتجاوبة */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%; /* ابدأ من اليمين لأن الموقع RTL */
+            width: 100%;  /* تأخذ كامل عرض الشاشة على الموبايل */
+            max-width: 350px; /* في الشاشات الكبيرة لا تتجاوز 350px */
+            height: 100%;
+            background: #fff;
+            box-shadow: -4px 0 15px rgba(0,0,0,0.2);
+            z-index: 2000;
+            transition: right 0.3s ease; /* التحرك الآن يعتمد على right */
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            overflow-y: auto; /* لضمان القدرة على التمرير داخل السلة */
+        }
+
+        .cart-sidebar.open {
+            right: 0; /* تظهر من اليمين عند الفتح */
+        }
+
+        .cart-header {
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cart-items-container {
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .cart-item-controls button {
+            background: #eee;
+            border: none;
+            padding: 2px 8px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+
+        .cart-total {
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .checkout-btn {
+            background-color: #25d366;
+            color: white;
+            width: 100%;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkout-btn:hover {
+            background-color: #1ebd58;
+        }
+
+        /* زر عائم للسلة أسفل الشاشة للجوّال */
+        .floating-cart-trigger {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #e63946;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 1500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-badge {
+            background: #fff;
+            color: #e63946;
+            padding: 2px 8px;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+
+        /* أنماط الفروع والفوتر */
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 4px solid #e63946;
+        }
+
+        .branches-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto 30px auto;
+        }
+
+        .branch-card {
+            background: #1a1a1a;
+            padding: 25px;
+            border-radius: 10px;
+            min-width: 280px;
+            border: 1px solid #333;
+        }
+
+        .branch-card h4 {
+            color: #ffc107;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .branch-card p {
+            color: #ccc;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        /* أنماط السوشيال ميديا في الفوتر */
+        .social-footer-container {
+            margin: 20px 0 30px 0;
+        }
+        .social-footer-container p {
+            color: #aaa;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .social-icons-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .social-icons-box a {
+            color: #fff;
+            font-size: 24px;
+            background: #222;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-icons-box a.fb:hover { background-color: #1877f2; color: #fff; transform: translateY(-3px); }
+        .social-icons-box a.tt:hover { background-color: #000000; color: #fff; border: 1px solid #fff; transform: translateY(-3px); }
+        .social-icons-box a.ig:hover { background-color: #c13584; color: #fff; transform: translateY(-3px); }
+
+        .footer-bottom {
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر العلوي المتكامل -->
+    <header>
+        <div class="header-left">
+             <button class="cta-button" onclick=" toggleCart()">🛒 عرض السلة</button>
+            <!-- روابط مواقع التواصل المحدثة بروابط المطعم الرسمية -->
+            <div class="social-header-links">
+                <a href="https://www.facebook.com/hotgrilljo" target="_blank" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/hot_grill12/" target="_blank" title="إنستغرام"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        
+        <!-- القائمة العلوية في المنتصف -->
+        <nav>
+            <ul>
+                <li><a href="#branches">اتصل بنا</a></li>
+                <li><a href="#menu">المنيو</a></li>
+            </ul>
+        </nav>
+
+        <!-- اللوجو على اليمين -->
+        <div class="logo">
+            <span style="color: #e63946;">HOT</span> <span style="color: #ffc107;">GRILL</span>
+        </div>
+    </header>
+
+    <!-- البانر الرئيسي (Hero Section) -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>شاورما وسناك <span style="color: #ffc107;">على أصولها</span></h1>
+            <p>من قلب الرصيفة، نأتيك بأشهى الوجبات الحقيقية حتى 3 فجراً.</p>
+        </div>
+    </section>
+
+    <!-- أقسام المنيو التفاعلية -->
+    <section id="menu" class="categories-section">
+        <div class="section-title">وجباتنا</div>
+        <p class="section-subtitle">إختر وجباتك المفضلة وأضفها للسلة ثم أرسل طلبك بكبسة واحدة 👇</p>
+        
+        <div class="categories-container">
+            
+            <!-- 1. قسم الشاورما -->
+            <div class="category-item">
+                <div class="category-card" onclick="toggleMenu('shawarma-prices')">
+                    <div class="icon">🌯</div>
+                    <h3>شاورما</h3>
+                    <p>منيو الشاورما الكامل: ساندويش، وجبات، وعائلي وبرايز.</p>
+                </div>
+                <div id="shawarma-prices" class="price-list-container">
+                    <table class="price-table">
+                        <tr><th>الصنف</th><th>عادي</th><th>مكسيكي</th></tr>
+                        <tr><td>ساندويش شاورما صغير</td><td>0.60 <button class="add-to-cart-btn" onclick="addToCart('ساندويش شاورما صغير (عادي)', 0.60)">+</button></td><td>0.65 <button class="add-to-cart-btn" onclick="addToCart('ساندويش شاورما صغير (مكسيكي)', 0.65)">+</button></td></tr>
+                        <tr><td>ساندويش شاورما سوبر</td><td>1.10 <button class="add-to-cart-btn" onclick="addToCart('ساندويش شاورما سوبر (عادي)', 1.10)">+</button></td><td>1.20 <button class="add-to-cart-btn" onclick="addToCart('ساندويش شاورما سوبر (مكسيكي)', 1.20)">+</button></td></tr>
+                        <tr><td>ساندويش شاورما فرنسي</td><td>1.50 <button class="add-to-cart-btn" onclick="addToCart('ساندويش شاورما فرنسي (عادي)', 1.50)">+</button></td><td>1.60 <button class="add-to-cart-btn" onclick="addToCart('ساندويش شاورما فرنسي (مكسيكي)', 1.60)">+</button></td></tr>
+                        <tr><td>وجبة شاورما عادي</td><td>2.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما عادي (عادي)', 2.00)">+</button></td><td>2.10 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما عادي (مكسيكي)', 2.10)">+</button></td></tr>
+                        <tr><td>وجبة شاورما سوبر</td><td>2.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما سوبر (عادي)', 2.50)">+</button></td><td>2.65 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما سوبر (مكسيكي)', 2.65)">+</button></td></tr>
+                        <tr><td>وجبة شاورما دبل</td><td>3.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما دبل (عادي)', 3.00)">+</button></td><td>3.20 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما دبل (مكسيكي)', 3.20)">+</button></td></tr>
+                        <tr><td>وجبة شاورما تربل</td><td>4.25 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما تربل (عادي)', 4.25)">+</button></td><td>4.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما تربل (مكسيكي)', 4.50)">+</button></td></tr>
+                        <tr><td>وجبة شاورما حلبي</td><td>3.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما حلبي (عادي)', 3.50)">+</button></td><td>3.75 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما حلبي (مكسيكي)', 3.75)">+</button></td></tr>
+                        <tr><td>وجبة شاورما إيطالي</td><td>3.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما إيطالي (عادي)', 3.50)">+</button></td><td>3.75 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما إيطالي (مكسيكي)', 3.75)">+</button></td></tr>
+                        <tr><td>وجبة عائلي (5 ساندويشات)</td><td>7.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما عائلي 5 ساندويشات (عادي)', 7.50)">+</button></td><td>8.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما عائلي 5 ساندويشات (مكسيكي)', 8.00)">+</button></td></tr>
+                        <tr><td>وجبة عائلي (7 ساندويشات)</td><td>10.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما عائلي 7 ساندويشات (عادي)', 10.00)">+</button></td><td>10.75 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما عائلي 7 ساندويشات (مكسيكي)', 10.75)">+</button></td></tr>
+                        <tr><td>ساندويش برايز</td><td>0.60 <button class="add-to-cart-btn" onclick="addToCart('ساندويش شاورما برايز (عادي)', 0.60)">+</button></td><td>0.70 <button class="add-to-cart-btn" onclick="addToCart('ساندويش شاورما برايز (مكسيكي)', 0.70)">+</button></td></tr>
+                        <tr><td>وجبة 3 برايز</td><td>2.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما 3 برايز (عادي)', 2.50)">+</button></td><td>2.80 <button class="add-to-cart-btn" onclick="addToCart('وجبة شاورما 3 برايز (مكسيكي)', 2.80)">+</button></td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 2. قسم السناكات وبرجر -->
+            <div class="category-item">
+                <div class="category-card" onclick="toggleMenu('snack-prices')">
+                    <div class="icon">🍔</div>
+                    <h3>سناكات وبرجر</h3>
+                    <p>زنجر، تندر، فاهيتا، كوردن بلو، وبرجر .</p>
+                </div>
+                <div id="snack-prices" class="price-list-container">
+                    <table class="price-table">
+                        <tr><th>الصنف</th><th>فرنسي</th><th>صاج</th><th>وجبة</th></tr>
+                        <tr><td>زنجر</td><td>1.50 <button class="add-to-cart-btn" onclick="addToCart('زنجر (فرنسي)', 1.50)">+</button></td><td>1.75 <button class="add-to-cart-btn" onclick="addToCart('زنجر (صاج)', 1.75)">+</button></td><td>2.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة زنجر', 2.50)">+</button></td></tr>
+                        <tr><td>تندر</td><td>1.50 <button class="add-to-cart-btn" onclick="addToCart('تندر (فرنسي)', 1.50)">+</button></td><td>1.75 <button class="add-to-cart-btn" onclick="addToCart('تندر (صاج)', 1.75)">+</button></td><td>2.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة تندر', 2.50)">+</button></td></tr>
+                        <tr><td>فاهيتا</td><td>1.50 <button class="add-to-cart-btn" onclick="addToCart('فاهيتا (فرنسي)', 1.50)">+</button></td><td>1.75 <button class="add-to-cart-btn" onclick="addToCart('فاهيتا (صاج)', 1.75)">+</button></td><td>2.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة فاهيتا', 2.50)">+</button></td></tr>
+                        <tr><td>ستيك</td><td>1.75 <button class="add-to-cart-btn" onclick="addToCart('ستيك (فرنسي)', 1.75)">+</button></td><td>1.75 <button class="add-to-cart-btn" onclick="addToCart('ستيك (صاج)', 1.75)">+</button></td><td>2.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة ستيك', 2.50)">+</button></td></tr>
+                        <tr><td>كوردن بلو</td><td>1.75 <button class="add-to-cart-btn" onclick="addToCart('كوردن بلو (فرنسي)', 1.75)">+</button></td><td>2.00 <button class="add-to-cart-btn" onclick="addToCart('كوردن بلو (صاج)', 2.00)">+</button></td><td>2.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة كوردن بلو', 2.50)">+</button></td></tr>
+                        <tr><th colspan="4" style="background:#f5f5f5; color:#000;">قسم البرجر والمنوعات</th></tr>
+                        <tr><td>برجر 65 غرام</td><td>1.00 <button class="add-to-cart-btn" onclick="addToCart('برجر 65 غرام (ساندويش)', 1.00)">+</button></td><td colspan="2">وجبة: 1.75 <button class="add-to-cart-btn" onclick="addToCart('وجبة برجر 65 غرام', 1.75)">+</button></td></tr>
+                        <tr><td>برجر 100 غرام</td><td>1.50 <button class="add-to-cart-btn" onclick="addToCart('برجر 100 غرام (ساندويش)', 1.50)">+</button></td><td colspan="2">وجبة: 2.25 <button class="add-to-cart-btn" onclick="addToCart('وجبة برجر 100 غرام', 2.25)">+</button></td></tr>
+                        <tr><td>برجر هوت جريل 150 غرام</td><td>2.00 <button class="add-to-cart-btn" onclick="addToCart('برجر هوت جريل 150 غرام (ساندويش)', 2.00)">+</button></td><td colspan="2">وجبة: 3.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة هوت جريل 150 غرام', 3.00)">+</button></td></tr>
+                        <tr><td>برجر ماشروم 150 غرام</td><td>2.00 <button class="add-to-cart-btn" onclick="addToCart('برجر ماشروم 150 غرام (ساندويش)', 2.00)">+</button></td><td colspan="2">وجبة: 3.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة برجر ماشروم 150 غرام', 3.00)">+</button></td></tr>
+                        <tr><td>سكالوب</td><td>1.25 <button class="add-to-cart-btn" onclick="addToCart('سكالوب (ساندويش)', 1.25)">+</button></td><td colspan="2">وجبة: 2.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة سكالوب', 2.00)">+</button></td></tr>
+                        <tr><td>زنجر سبعات</td><td>1.25 <button class="add-to-cart-btn" onclick="addToCart('زنجر سبعات (ساندويش)', 1.25)">+</button></td><td colspan="2">وجبة: 2.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة زنجر سبعات', 2.00)">+</button></td></tr>
+                    </table>
+                </div>
+            </div>
+            <!-- 4. قسم بروستد وكرسبي -->
+            <div class="category-item">
+                <div class="category-card" onclick="toggleMenu('broasted-prices')">
+                    <div class="icon">🍗🍟</div>
+                    <h3>بروستد وكرسبي</h3>
+                    <p>مقرمش، ذهبي، بالقطع والخلطة السرية الفخمة مع المقبلات والصلصات.</p>
+                </div>
+                <div id="broasted-prices" class="price-list-container">
+                    <table class="price-table">
+                        <tr><th>عدد القطع</th><th>بروستد</th><th>كرسبي</th></tr>
+                        <tr>
+                            <td>4 قطع <br><small style="color: #777;">(بطاطا + مثومة + ملفوف + خبز + باربيكيو + كاتشب + خردل)</small></td>
+                            <td class="price-val">3.25 <button class="add-to-cart-btn" onclick="addToCart('وجبة 4 قطع بروستد', 3.25)">+</button></td>
+                            <td class="price-val">3.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة 4 قطع كرسبي', 3.00)">+</button></td>
+                        </tr>
+                        <tr>
+                            <td>8 قطع <br><small style="color: #777;">(بطاطا + مثومة + ملفوف + خبز + باربيكيو + كاتشب + خردل)</small></td>
+                            <td class="price-val">6.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة 8 قطع بروستد', 6.00)">+</button></td>
+                            <td class="price-val">5.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة 8 قطع كرسبي', 5.50)">+</button></td>
+                        </tr>
+                        <tr>
+                            <td>12 قطعة <br><small style="color: #777;">(بطاطا + مثومة + ملفوف + خبز + باربيكيو + كاتشب + خردل)</small></td>
+                            <td class="price-val">9.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة 12 قطعة بروستد', 9.00)">+</button></td>
+                            <td class="price-val">8.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة 12 قطعة كرسبي', 8.50)">+</button></td>
+                        </tr>
+                        <tr>
+                            <td>16 قطعة <br><small style="color: #777;">(بطاطا + مثومة + ملفوف + خبز + باربيكيو + كاتشب + خردل)</small></td>
+                            <td class="price-val">12.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة 16 قطعة بروستد', 12.00)">+</button></td>
+                            <td class="price-val">11.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة 16 قطعة كرسبي', 11.00)">+</button></td>
+                        </tr>
+                        <tr>
+                            <td>20 قطعة <br><small style="color: #777;">(بطاطا + مثومة + ملفوف + خبز + باربيكيو + كاتشب + خردل)</small></td>
+                            <td class="price-val">15.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة 20 قطعة بروستد', 15.00)">+</button></td>
+                            <td class="price-val">14.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة 20 قطعة كرسبي', 14.00)">+</button></td>
+                        </tr>
+                        <tr>
+                            <td>24 قطعة <br><small style="color: #777;">(بطاطا + مثومة + ملفوف + خبز + باربيكيو + كاتشب + خردل)</small></td>
+                            <td class="price-val">18.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة 24 قطعة بروستد', 18.00)">+</button></td>
+                            <td class="price-val">16.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة 24 قطعة كرسبي', 16.00)">+</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+ <!-- 3. قسم دجاج شواية -->
+            <div class="category-item">
+                <div class="category-card" onclick="toggleMenu('grill-prices')">
+                    <div class="icon">🍗</div>
+                    <h3>دجاج شواية</h3>
+                    <p>مشوي على اللهب متبل على الأصول.</p>
+                </div>
+                <div id="grill-prices" class="price-list-container">
+                    <table class="price-table">
+                        <tr><th>الصنف</th><th>السعر</th><th>إضافة</th></tr>
+                        <tr><td>دجاجة شواية كاملة مع المقبلات والبطاطا</td><td class="price-val">5.00</td><td><button class="add-to-cart-btn" onclick="addToCart('دجاجة شواية كاملة', 5.00)">+ سلة</button></td></tr>
+                        <tr><td>نصف دجاجة شواية مع المقبلات</td><td class="price-val">2.75</td><td><button class="add-to-cart-btn" onclick="addToCart('نصف دجاجة شواية', 2.75)">+ سلة</button></td></tr>
+                    </table>
+                </div>
+            </div>
+            <!-- 5. قسم مقبلات وبطاطا -->
+            <div class="category-item">
+                <div class="category-card" onclick="toggleMenu('appetizers-prices')">
+                    <div class="icon">🍟🥗</div>
+                    <h3>مقبلات وبطاطا</h3>
+                    <p>ساندويشات بطاطا، علب بطاطا فريش، مثومة ومكسيكي.</p>
+                </div>
+                <div id="appetizers-prices" class="price-list-container">
+                    <table class="price-table">
+                        <tr><th>الصنف</th><th>السعر</th><th>إضافة</th></tr>
+                        <tr><td>ساندويش بطاطا صغير</td><td class="price-val">0.50</td><td><button class="add-to-cart-btn" onclick="addToCart('ساندويش بطاطا صغير', 0.50)">+ سلة</button></td></tr>
+                        <tr><td>ساندويش بطاطا كبير</td><td class="price-val">0.75</td><td><button class="add-to-cart-btn" onclick="addToCart('ساندويش بطاطا كبير', 0.75)">+ سلة</button></td></tr>
+                        <tr><td>ساندويش بطاطا خبز فرنسي</td><td class="price-val">1.00</td><td><button class="add-to-cart-btn" onclick="addToCart('ساندويش بطاطا خبز فرنسي', 1.00)">+ سلة</button></td></tr>
+                        <tr><td>علبة بطاطا صغير</td><td class="price-val">0.50</td><td><button class="add-to-cart-btn" onclick="addToCart('علبة بطاطا صغير', 0.50)">+ سلة</button></td></tr>
+                        <tr><td>علبة بطاطا كبير</td><td class="price-val">1.00</td><td><button class="add-to-cart-btn" onclick="addToCart('علبة بطاطا كبير', 1.00)">+ سلة</button></td></tr>
+                        <tr><td>علبة مثومة كبيرة</td><td class="price-val">0.50</td><td><button class="add-to-cart-btn" onclick="addToCart('علبة مثومة كبيرة', 0.50)">+ سلة</button></td></tr>
+                        <tr><td>علبة مكسيكي كبيرة</td><td class="price-val">0.50</td><td><button class="add-to-cart-btn" onclick="addToCart('علبة مكسيكي كبيرة', 0.50)">+ سلة</button></td></tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- واجهة السلة الجانبية المخفية -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>🛒 سلة طلباتك</h3>
+            <button class="cart-close" onclick="toggleCart()">×</button>
+        </div>
+        <div id="cartItems" class="cart-items-container">
+            <p style="text-align:center; color:#999; margin-top:30px;">السلة فارغة حالياً.. أضف بعض الوجبات الشهية!</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>المجموع الكلي:</span>
+                <span id="cartTotalVal">0.00 JD</span>
+            </div>
+            <button class="checkout-btn" onclick="checkoutOrder()">
+                إرسال الطلب عبر WhatsApp 🚀
+            </button>
+        </div>
+    </div>
+
+    <!-- الزر العائم للسلة على الجوال في الأسفل -->
+    <button class="floating-cart-trigger" onclick="toggleCart()">
+        🛒 السلة <span id="cartBadgeCount" class="cart-badge">0</span>
+    </button>
+
+    <!-- قسم الفروع والفوتر المتكامل -->
+    <footer id="branches">
+        <div class="section-title" style="color: #fff; margin-bottom: 40px;">فروعنا في خدمتكم</div>
+        <div class="branches-container">
+            <!-- فرع الرصيفة -->
+            <div class="branch-card">
+                <h4>📍 فرع 1: الرصيفة</h4>
+                <p>شارع ياجوز - مقابل حلويات روعة الشرق</p>
+                <p>📞 0788136060 | 0799444766</p>
+            </div>
+            <!-- فرع حي الرشيد -->
+            <div class="branch-card">
+                <h4>📍 فرع 2: حي الرشيد</h4>
+                <p>مثلث بدر - بالقرب من الفنتوش مول</p>
+                <p>📞 0799970234</p>
+            </div>
+        </div>
+
+        <!-- قسم السوشيال ميديا المحدث بالروابط الرسمية بالأسفل -->
+        <div class="social-footer-container">
+            <p>تابعونا على منصاتنا لتصلكم أحدث العروض والخصومات 🔥</p>
+            <div class="social-icons-box">
+                <a href="https://www.facebook.com/hotgrilljo" target="_blank" class="fb" title="تابعنا على فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/hot_grill12/" target="_blank" class="ig" title="تابعنا على إنستغرام"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 جميع الحقوق محفوظة لمطعم Hot Grill</p>
+        </div>
+    </footer>
+
+    <!-- كود الجافاسكريبت للتفاعل والإرسال التلقائي مع نظام السلة -->
+    <script>
+        let cart = [];
+
+        function toggleMenu(id) {
+            const allMenus = document.querySelectorAll('.price-list-container');
+            allMenus.forEach(menu => {
+                if (menu.id !== id) {
+                    menu.style.display = 'none';
+                }
+            });
+
+            const targetMenu = document.getElementById(id);
+            if (targetMenu.style.display === 'block') {
+                targetMenu.style.display = 'none';
+            } else {
+                targetMenu.style.display = 'block';
+            }
+        }
+function toggleCart() {
+    const sidebar = document.getElementById('cartSidebar'); // تأكد من الـ ID الصحيح
+    sidebar.classList.toggle('open');
+        }
+
+       function addToCart(name, price) {
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.qty += 1;
+    } else {
+        cart.push({ name: name, price: price, qty: 1 });
+    }
+    updateCartUI();
+        }
+
+        function changeQty(name, amount) {
+            const item = cart.find(item => item.name === name);
+            if (item) {
+                item.qty += amount;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartTotalVal = document.getElementById('cartTotalVal');
+            const cartBadgeCount = document.getElementById('cartBadgeCount');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align:center; color:#999; margin-top:30px;">السلة فارغة حالياً.. أضف بعض الوجبات الشهية!</p>';
+                cartTotalVal.innerText = '0.00 JD';
+                cartBadgeCount.innerText = '0';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            let totalItems = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                totalItems += item.qty;
+                html += `
+                    <div class="cart-item-row">
+                        <div>
+                            <strong>${item.name}</strong><br>
+                            <span style="color:#e63946; font-weight:bold;">${itemTotal.toFixed(2)} JD</span>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button onclick="changeQty('${item.name}', -1)">-</button>
+                            <span style="margin:0 8px; font-weight:bold;">${item.qty}</span>
+                            <button onclick="changeQty('${item.name}', 1)">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItemsContainer.innerHTML = html;
+            cartTotalVal.innerText = total.toFixed(2) + ' JD';
+            cartBadgeCount.innerText = totalItems;
+        }
+
+        function checkoutOrder() {
+            if (cart.length === 0) {
+                alert('سلتك فارغة، يرجى إضافة وجبات أولاً!');
+                return;
+            }
+
+            const phoneNumber = "962799444766"; 
+            let message = `*طلب جديد من منيو السعادة 🔥*\n\n`;
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                message += `${index + 1}. *${item.name}* (العدد: ${item.qty}) -> ${itemTotal.toFixed(2)} JD\n`;
+            });
+
+            message += `\n💰 *المجموع الكلي:* ${total.toFixed(2)} JD\n`;
+            message += `\nيرجى تجهيز الطلب والاستلام بأقرب وقت 🤝.`;
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+
+</body>
+</html>
