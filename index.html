@@ -331,6 +331,7 @@
             flex-direction: column;
             text-align: right;
             overflow-y: auto; /* لضمان القدرة على التمرير داخل السلة */
+            
         }
 
         .cart-sidebar.open {
@@ -601,13 +602,12 @@
                         <tr><td>فاهيتا</td><td>1.50 <button class="add-to-cart-btn" onclick="addToCart('فاهيتا (فرنسي)', 1.50)">+</button></td><td>1.75 <button class="add-to-cart-btn" onclick="addToCart('فاهيتا (صاج)', 1.75)">+</button></td><td>2.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة فاهيتا', 2.50)">+</button></td></tr>
                         <tr><td>ستيك</td><td>1.75 <button class="add-to-cart-btn" onclick="addToCart('ستيك (فرنسي)', 1.75)">+</button></td><td>1.75 <button class="add-to-cart-btn" onclick="addToCart('ستيك (صاج)', 1.75)">+</button></td><td>2.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة ستيك', 2.50)">+</button></td></tr>
                         <tr><td>كوردن بلو</td><td>1.75 <button class="add-to-cart-btn" onclick="addToCart('كوردن بلو (فرنسي)', 1.75)">+</button></td><td>2.00 <button class="add-to-cart-btn" onclick="addToCart('كوردن بلو (صاج)', 2.00)">+</button></td><td>2.50 <button class="add-to-cart-btn" onclick="addToCart('وجبة كوردن بلو', 2.50)">+</button></td></tr>
-                        <tr><th colspan="4" style="background:#f5f5f5; color:#000;">قسم البرجر والمنوعات</th></tr>
+                        <tr><th colspan="4" style="background:#f5f5f5; color:#000;">قسم البرجر </th></tr>
                         <tr><td>برجر 65 غرام</td><td>1.00 <button class="add-to-cart-btn" onclick="addToCart('برجر 65 غرام (ساندويش)', 1.00)">+</button></td><td colspan="2">وجبة: 1.75 <button class="add-to-cart-btn" onclick="addToCart('وجبة برجر 65 غرام', 1.75)">+</button></td></tr>
                         <tr><td>برجر 100 غرام</td><td>1.50 <button class="add-to-cart-btn" onclick="addToCart('برجر 100 غرام (ساندويش)', 1.50)">+</button></td><td colspan="2">وجبة: 2.25 <button class="add-to-cart-btn" onclick="addToCart('وجبة برجر 100 غرام', 2.25)">+</button></td></tr>
                         <tr><td>برجر هوت جريل 150 غرام</td><td>2.00 <button class="add-to-cart-btn" onclick="addToCart('برجر هوت جريل 150 غرام (ساندويش)', 2.00)">+</button></td><td colspan="2">وجبة: 3.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة هوت جريل 150 غرام', 3.00)">+</button></td></tr>
                         <tr><td>برجر ماشروم 150 غرام</td><td>2.00 <button class="add-to-cart-btn" onclick="addToCart('برجر ماشروم 150 غرام (ساندويش)', 2.00)">+</button></td><td colspan="2">وجبة: 3.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة برجر ماشروم 150 غرام', 3.00)">+</button></td></tr>
                         <tr><td>سكالوب</td><td>1.25 <button class="add-to-cart-btn" onclick="addToCart('سكالوب (ساندويش)', 1.25)">+</button></td><td colspan="2">وجبة: 2.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة سكالوب', 2.00)">+</button></td></tr>
-                        <tr><td>زنجر سبعات</td><td>1.25 <button class="add-to-cart-btn" onclick="addToCart('زنجر سبعات (ساندويش)', 1.25)">+</button></td><td colspan="2">وجبة: 2.00 <button class="add-to-cart-btn" onclick="addToCart('وجبة زنجر سبعات', 2.00)">+</button></td></tr>
                     </table>
                 </div>
             </div>
@@ -703,14 +703,30 @@
             <p style="text-align:center; color:#999; margin-top:30px;">السلة فارغة حالياً.. أضف بعض الوجبات الشهية!</p>
         </div>
         <div class="cart-footer">
-            <div class="cart-total">
-                <span>المجموع الكلي:</span>
-                <span id="cartTotalVal">0.00 JD</span>
-            </div>
-            <button class="checkout-btn" onclick="checkoutOrder()">
-                إرسال الطلب عبر WhatsApp 🚀
-            </button>
-        </div>
+            <div style="margin-bottom: 10px;">
+    <label style="display: block; font-weight: bold; margin-bottom: 5px;">اختر الفرع:</label>
+    <select id="branchSelect" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="فرع الاسكان">فرع الاسكان </option>
+        <option value="فرع حي الرشيد">فرع حي الرشيد</option>
+    </select>
+</div>
+    <div style="margin-bottom: 10px;">
+        <label style="display: block; font-weight: bold; margin-bottom: 5px;">طريقة الطلب:</label>
+        <select id="orderType" onchange="updateCartUI()" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+            <option value="استلام من المطعم">استلام من المطعم (10-15 دقيقة)</option>
+            <option value="توصيل">توصيل (+1 دينار - 20-30 دقيقة)</option>
+        </select>
+    </div>
+
+    <div class="cart-total">
+        <span>المجموع الكلي: </span>
+        <span id="cartTotalVal">0.00 JD</span>
+    </div>
+
+    <button class="checkout-btn" onclick="checkoutOrder()">
+        إرسال الطلب عبر WhatsApp 🚀
+      </button>
+     </div>>
     </div>
 
     <!-- الزر العائم للسلة على الجوال في الأسفل -->
@@ -834,29 +850,41 @@ function toggleCart() {
             cartTotalVal.innerText = total.toFixed(2) + ' JD';
             cartBadgeCount.innerText = totalItems;
         }
+function checkoutOrder() {
+    if (cart.length === 0) {
+        alert('سلتك فارغة!');
+        return;
+    }
 
-        function checkoutOrder() {
-            if (cart.length === 0) {
-                alert('سلتك فارغة، يرجى إضافة وجبات أولاً!');
-                return;
-            }
+    // جلب القيم من القوائم
+    const branch = document.getElementById('branchSelect').value;
+    const orderType = document.getElementById('orderType').value;
+    const prepTime = (orderType === 'توصيل') ? "20-30 دقيقة" : "10-15 دقيقة";
+    const phoneNumber = "962799444766";
+    
+    let message = `*طلب جديد من Hot Grill 🔥*\n\n`;
+    message += `🏢 *الفرع:* ${branch}\n`; // الفرع المختار
+    message += `📍 *طريقة الطلب:* ${orderType}\n\n`;
+    
+    let total = 0;
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        message += `${index + 1}. *${item.name}* (العدد: ${item.qty}) = ${itemTotal.toFixed(2)} JD\n`;
+    });
 
-            const phoneNumber = "962799444766"; 
-            let message = `*طلب جديد من منيو السعادة 🔥*\n\n`;
-            let total = 0;
+    if (orderType === 'توصيل') {
+        total += 1.00;
+        message += `\n🛵 *رسوم التوصيل:* 1.00 JD`;
+    }
 
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.qty;
-                total += itemTotal;
-                message += `${index + 1}. *${item.name}* (العدد: ${item.qty}) -> ${itemTotal.toFixed(2)} JD\n`;
-            });
+    message += `\n\n💰 *المجموع الكلي:* ${total.toFixed(2)} JD`;
+    message += `\n⏳ *وقت التجهيز المتوقع:* ${prepTime}`;
+    message += `\n\nيرجى تجهيز الطلب 🤝.`;
 
-            message += `\n💰 *المجموع الكلي:* ${total.toFixed(2)} JD\n`;
-            message += `\nيرجى تجهيز الطلب والاستلام بأقرب وقت 🤝.`;
-
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+}
     </script>
 
 </body>
